@@ -1,0 +1,14 @@
+.git
+.github
+.gitignore
+.assetsignore
+.DS_Store
+.playwright-cli
+.claude
+node_modules
+*.log
+README.md
+DESIGN.md
+apps-script
+skills-lock.json
+wrangler.toml
