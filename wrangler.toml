@@ -1,0 +1,5 @@
+name = "wedding-web"
+compatibility_date = "2026-11-12"
+
+[assets]
+directory = "."
