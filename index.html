@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Wedding of Assela &amp; Rama</title>
+  <meta name="description" content="The wedding of Assela &amp; Rama — Saturday, 19 December 2026 · Laie, Hawaii. Kindly RSVP.">
+  <meta name="theme-color" content="#90a4af">
+
+  <!-- Link preview (WhatsApp, Instagram, etc.). After the domain is live,
+       make og:image an absolute URL, e.g. https://yourdomain.com/assets/img/og.jpg -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Wedding of Assela &amp; Rama">
+  <meta property="og:description" content="Saturday, 19 December 2026 · Laie, Hawaii · Kindly RSVP">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Allura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-locked">
+  <!-- ===== Envelope cover ===== -->
+  <div class="cover" id="cover" role="dialog" aria-modal="true" aria-labelledby="cover-names">
+    <div class="env">
+      <div class="env-lining" aria-hidden="true"></div>
+      <div class="env-letter" aria-hidden="true">
+        <p class="label" data-i18n="theWeddingOf"></p>
+        <p class="script env-letter-names" data-slot="names" translate="no"></p>
+        <p class="env-letter-date" data-slot="date"></p>
+      </div>
+      <svg class="env-pocket" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="pk-side" d="M0,28 L53,63 L0,100 Z"/>
+        <path class="pk-side" d="M100,28 L47,63 L100,100 Z"/>
+        <path class="bottom" d="M0,100 L0,96 C20,80 38,64 50,58 C62,64 80,80 100,96 L100,100 Z"/>
+      </svg>
+      <div class="felt felt-pocket" aria-hidden="true"></div>
+      <div class="env-flap" aria-hidden="true">
+        <svg class="flap-front" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,0 H100 V30 C80,44 62,56 50,58 C38,56 20,44 0,30 Z"/>
+        </svg>
+        <svg class="flap-back" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,0 H100 V30 C80,44 62,56 50,58 C38,56 20,44 0,30 Z"/>
+        </svg>
+        <div class="felt felt-flap"></div>
+      </div>
+
+      <div class="env-content">
+        <div class="env-text">
+          <p class="label" data-i18n="coverKicker"></p>
+          <h1 class="script cover-names" id="cover-names" data-slot="names-stacked" translate="no"></h1>
+          <p class="cover-date" data-slot="date"></p>
+        </div>
+        <button class="seal" id="open-btn" type="button">
+          <span class="seal-mono script" data-slot="monogram" aria-hidden="true"></span>
+          <span class="sr-only" data-i18n="coverOpen"></span>
+        </button>
+        <div class="env-guest">
+          <p class="label" data-i18n="coverDear"></p>
+          <p class="guest-name" data-slot="guest" translate="no"></p>
+          <button class="btn btn-ghost" type="button" data-open data-i18n="coverOpen"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Desktop side panel ===== -->
+  <aside class="side" aria-hidden="true">
+    <div class="felt"></div>
+    <div class="side-inner">
+      <p class="label" data-i18n="theWeddingOf"></p>
+      <p class="script side-names" data-slot="names-stacked" translate="no"></p>
+      <p class="cover-date" data-slot="date"></p>
+    </div>
+  </aside>
+
+  <!-- ===== Invitation (rendered from js/config.js) ===== -->
+  <main id="content" tabindex="-1"></main>
+
+  <!-- ===== Floating controls ===== -->
+  <!-- Language circle, top right — always visible, on the envelope and after opening it. -->
+  <button class="ctrl lang-toggle" id="lang-toggle" type="button" data-lang-toggle>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.6 3.4 5.4 3.4 8.5s-1 5.9-3.4 8.5M12 3.5C9.6 6.1 8.6 8.9 8.6 12s1 5.9 3.4 8.5"/></svg>
+    <span data-lang-code>EN</span>
+  </button>
+
+  <!-- ===== Bottom navbar (shown after the envelope is opened) ===== -->
+  <nav class="bnav" id="bnav" data-i18n-label="navLabel">
+    <a class="bnav-item" href="#home" data-nav="home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7v8.5a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></svg>
+      <span data-i18n="navHome"></span>
+    </a>
+    <a class="bnav-item" href="#story" data-nav="story">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></svg>
+      <span data-i18n="navStory"></span>
+    </a>
+    <a class="bnav-item" href="#events" data-nav="events">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
+      <span data-i18n="navEvent"></span>
+    </a>
+    <a class="bnav-item" href="#gallery" data-nav="gallery">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><circle cx="9" cy="10" r="1.6"/><path d="m20.5 16-5-5-8.5 8"/></svg>
+      <span data-i18n="navGallery"></span>
+    </a>
+    <a class="bnav-item" href="#rsvp" data-nav="rsvp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12.5" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg>
+      <span data-i18n="navRsvp"></span>
+    </a>
+    <button class="bnav-item" type="button" data-nav="support" data-support-open aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="8.5" width="17" height="4" rx=".5"/><path d="M5 12.5v8h14v-8M12 8.5v12"/><path d="M12 8.5c-1.5-3-5.5-4.5-6-2s3.5 2 6 2c2.5 0 6.5.5 6-2s-4.5-1-6 2z"/></svg>
+      <span data-i18n="navGift"></span>
+    </button>
+  </nav>
+
+  <!-- ===== Support Us pop-up (filled from config.gift) ===== -->
+  <dialog class="sheet" id="support-dialog" aria-labelledby="support-title">
+    <div class="sheet-inner" tabindex="-1" autofocus>
+      <button class="sheet-close" type="button" data-sheet-close data-i18n-label="close"><span aria-hidden="true">✕</span></button>
+      <p class="label" data-i18n="giftLabel"></p>
+      <h2 class="title" id="support-title" data-i18n="supportUs"></h2>
+      <div id="support-body"></div>
+    </div>
+  </dialog>
+
+  <!-- ===== Small gallery pop-up (opened from the envelope in the Gallery section) ===== -->
+  <dialog class="gpop" id="lightbox" aria-labelledby="gpop-title">
+    <div class="gpop-inner" tabindex="-1" autofocus>
+      <div class="gpop-head">
+        <h2 class="label" id="gpop-title" data-i18n="galleryLabel"></h2>
+        <span class="gpop-count" id="gpop-count" aria-live="polite"></span>
+        <button class="sheet-close" type="button" data-lb="close" data-i18n-label="close"><span aria-hidden="true">✕</span></button>
+      </div>
+      <div class="gpop-frame">
+        <img alt="" hidden>
+        <span class="gpop-ph script" aria-hidden="true" translate="no"></span>
+        <button class="lb-btn lb-prev" type="button" data-lb="prev" data-i18n-label="prev"><span aria-hidden="true">‹</span></button>
+        <button class="lb-btn lb-next" type="button" data-lb="next" data-i18n-label="next"><span aria-hidden="true">›</span></button>
+      </div>
+      <div class="gpop-thumbs" id="gpop-thumbs"></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
