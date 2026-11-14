@@ -34,23 +34,25 @@ window.WEDDING = {
   timeZone: "Pacific/Honolulu",
   timeZoneLabel: "HST",
 
-  /* First screen after the envelope opens: a collage on deep night-blue.
-     Every picture slot is empty on purpose — fill in the paths later.
-     Decorations look best as transparent PNGs (cut-outs). */
+  /* First screen after the envelope opens: vintage polaroid stack on deep night-blue.
+     3 photos overlap with tape strips, handwritten captions, slim script names. */
   firstLook: {
-    title: { id: "Simpan Tanggalnya", en: "Save our Date" }, // script text on the cream note
-    place: "Laie\nHawaii", // on the heart card (\n = new line)
+    title: { id: "Simpan Tanggalnya!", en: "Save the Date!" }, // handwritten kicker above the stack
+    subtitle: {
+      id: "— cerita cinta kami berlanjut —",
+      en: "— our love story continues —",
+    }, // small italic line under kicker
     photos: [
       "assets/img/web/photo-1.jpg",
       "assets/img/web/photo-4.jpg",
       "assets/img/web/photo-5.jpg",
-    ], // photostrip, top → bottom
-    photosBW: false, // true = black & white photobooth look, false = original colours
-    frame: "", // antique picture frame behind everything (tall PNG). Empty = plain champagne panel
-    paper: "", // paper cut-out behind the "Save our Date" note (e.g. flower silhouette PNG)
-    lily: "", // flower peeking over the top of the frame (PNG)
-    greenery: "", // hanging greenery on the right edge (tall PNG)
-    lace: "", // lace ruffle behind the heart card (PNG)
+    ], // 3 polaroid photos (top-left, top-right, bottom-center)
+    captions: ["us, '24", "BYUH days", "forever ♡"], // handwritten caption under each polaroid
+    place: {
+      id: "di Laie, Hawaii yang indah",
+      en: "in beautiful Laie, Hawaii",
+    }, // handwritten location line
+    photosBW: false, // true = grayscale, false = original colours
     contact: "", // e.g. 'ramaassela@email.com' or a WhatsApp number — '' hides the line
   },
 
@@ -71,10 +73,10 @@ window.WEDDING = {
     },
     {
       year: "2024-2025",
-      title: { id: "LDR ke BYUH", en: "From LDR to BYUH" },
+      title: { id: "LDR ke BYUH", en: "LDR to BYUH" },
       text: {
-        id: "Kami menjalani hubungan jarak jauh selama hampir satu tahun, hingga akhirnya Assela tiba di BYUH pada tahun 2025. Sementara itu, Rama sudah lebih dulu berada di BYUH sejak 2024. (Masih Bersama!)",
-        en: "We were in a long-distance relationship for almost a year, until Assela finally arrived at BYUH in 2025. Rama had already been there since 2024. (Still Together!)",
+        id: "Kami menjalani hubungan jarak jauh selama kurang lebih satu setengah tahun, hingga akhirnya Assela tiba di BYUH pada tahun 2025. Sementara itu, Rama sudah lebih dulu berada di BYUH sejak 2024. (Masih Bersama!)",
+        en: "We were in a long-distance relationship for about a year and half, until Assela finally got into BYUH in 2025. Rama had already been there since 2024. (Still Together!)",
       },
     },
     {
@@ -95,7 +97,7 @@ window.WEDDING = {
       venue: "BYU–Hawaii · STC Chapel 179",
       address: "Laie, Hawaii",
       mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=BYU-Hawaii%2C%20Laie%2C%20HI", // swap for a pin to the exact building if you like
+        "https://www.google.com/maps/?q=21.642776617331553,-157.9276080508247", // pin ke koordinat exact STC Chapel
       note: "", // small italic line on the card, e.g. { en: 'Doors open 10:30 AM', id: 'Pintu dibuka 10.30' }
     },
   ],
@@ -108,7 +110,7 @@ window.WEDDING = {
       title: { id: "Kedatangan Tamu", en: "Guest Arrival & Guest Book" },
       text: {
         id: "Silakan mengisi wedding guest book kami untuk mendapatkan kenang-kenangan kecil dari kami sambil menunggu kedua mempelai.",
-        en: "Please Sign our wedding guest book to and get little gift from us while waiting for the bride and groom.",
+        en: "Please Sign our wedding guest book and get little gift from us while waiting for the bride and groom.",
       },
     },
     {
@@ -128,7 +130,7 @@ window.WEDDING = {
       },
     },
     {
-      time: "2026-12-19T12:00:00-10:00",
+      time: "2026-12-19T12:01:00-10:00",
       title: {
         id: "Hidangan Ringan & Guest Book",
         en: "Refreshments & Guest Book",
@@ -203,7 +205,10 @@ window.WEDDING = {
         url: "https://www.amazon.com/wedding/guest-view/3I9NJ15K85IQE", // TODO: your Amazon registry link
         logo: "assets/icons/amazon.svg",
         color: "#ff9900",
-        note: { en: "View our wish list", id: "Lihat daftar hadiah kami" },
+        note: {
+          en: "Send a gift of our wish list",
+          id: "Lihat daftar hadiah kami",
+        },
       },
       {
         name: "Venmo",
@@ -220,7 +225,7 @@ window.WEDDING = {
         note: { en: "Send a gift via Chime", id: "Kirim hadiah lewat Chime" },
       },
       {
-        name: "BCA",
+        name: "BCA - Indonesian Bank",
         number: "7651104088",
         holder: "Assela Zeniffia Sutrisno", // TODO: account number + name
         color: "#00539f", // tile colour behind the icon; swap in logo: 'assets/icons/<file>.svg' if you have BCA's official mark
@@ -232,7 +237,7 @@ window.WEDDING = {
   closing: {
     text: {
       id: "Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.",
-      en: "It would be our joy and honour to have you with us and receive your blessing.",
+      en: "It would be our joy and honor to have you with us and receive your blessing.",
     },
     hashtag: "#AsselaAndRama", // TODO or ''
   },

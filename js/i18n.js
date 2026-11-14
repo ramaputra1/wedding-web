@@ -61,8 +61,8 @@ window.I18N = {
   fEmail: { id: "Email", en: "Email" },
   fEmailPh: { id: "nama@email.com", en: "name@email.com" },
   fEmailHint: {
-    id: "Isi kalau ingin menerima email konfirmasi dan link zoom.",
-    en: "Fill in to receive a confirmation email and zoom link.",
+    id: "Isi kalau ingin menerima email konfirmasi dan link online meeting.",
+    en: "Fill in to receive a confirmation email and online meeting link.",
   },
   errEmail: {
     id: "Format email belum benar, contoh: nama@email.com",

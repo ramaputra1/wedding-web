@@ -111,13 +111,10 @@
 
   /* ---------- sections ---------- */
   const S = {
-    /* First look: collage + countdown. Every picture slot comes from config.firstLook. */
+    /* First look: polaroid stack + slim-script names + handwritten accents,
+       then the existing countdown / tagline / CTA / scroll hint below. */
     hero: () => {
       const F = C.firstLook || {};
-      const img = (src, alt = '') => (src ? `<img src="${esc(src)}" alt="${esc(alt)}">` : '');
-      const deco = (cls, src, d) => `<div class="fl-piece ${cls}${src ? '' : ' is-empty'}" style="--d:${d}ms" aria-hidden="true">${img(src)}</div>`;
-      const photos = [0, 1, 2].map((i) => `<div class="fl-photo">${img(F.photos?.[i], `${namesInline} ${i + 1}`)}</div>`).join('');
-      const heart = 'M50 88C20 66 2 48 2 28 2 12 14 2 28 2c10 0 18 6 22 14C54 8 62 2 72 2c14 0 26 10 26 26 0 20-18 38-48 60z';
       const contact = (() => {
         const c = String(F.contact || '').trim();
         if (!c) return '';
@@ -125,39 +122,49 @@
         if (/^[+\d\s-]{8,}$/.test(c)) return `<a href="https://wa.me/${c.replace(/\D/g, '').replace(/^0/, '62')}" target="_blank" rel="noopener">${esc(c)}</a>`;
         return esc(c);
       })();
+      const captions = F.captions || [];
+      const bw = F.photosBW ? ' is-bw' : '';
+      const polaroid = (i, pos) => {
+        const src = F.photos?.[i];
+        const cap = captions[i] || '';
+        return `
+          <figure class="fl-polaroid fl-${pos}${bw}${src ? '' : ' is-empty'}">
+            <span class="fl-tape" aria-hidden="true"></span>
+            ${src ? `<img src="${esc(src)}" alt="">` : '<span class="fl-ph">Photo</span>'}
+            ${cap ? `<figcaption class="fl-caption">${esc(cap)}</figcaption>` : ''}
+          </figure>`;
+      };
+      const shortDateStr = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-GB',
+        { timeZone: C.timeZone, weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' })
+        .format(new Date(C.date)).replace(/,/g, ' ·');
       return `
       <section id="home" class="sec first-look on-dark">
         <div class="wrap">
           <h2 class="sr-only">${esc(ui('theWeddingOf'))} ${esc(namesInline)}</h2>
-          <div class="collage">
-            ${deco('fl-lily', F.lily, 250)}
-            <div class="fl-piece fl-frame${F.frame ? ' has-img' : ''}" style="--d:0ms" aria-hidden="true">${img(F.frame)}</div>
-            ${deco('fl-greenery', F.greenery, 400)}
-            <div class="fl-piece fl-note${F.paper ? ' has-img' : ''}" style="--d:150ms">
-              ${F.paper ? `<img class="fl-paper" src="${esc(F.paper)}" alt="">` : ''}
-              <p class="title fl-note-text">${esc(t(F.title))}</p>
-            </div>
-            <div class="fl-piece fl-strip${F.photosBW === false ? '' : ' is-bw'}" style="--d:300ms">${photos}</div>
-            ${deco('fl-lace', F.lace, 450)}
-            <div class="fl-piece fl-heart" style="--d:500ms">
-              <svg viewBox="0 0 100 90" aria-hidden="true"><path class="h-fill" d="${heart}"/><path class="h-line" d="${heart}" transform="translate(50 46) scale(.86) translate(-50 -46)"/></svg>
-              <p class="fl-heart-text"><span>${esc(shortDate(C.date).replace(/ · /g, '.'))}</span><span>${t(F.place).split('\n').map(esc).join('<br>')}</span></p>
-            </div>
-            <div class="fl-piece fl-vinyl-wrap" style="--d:600ms">
-              <div class="fl-vinyl" aria-hidden="true"><span class="fl-vinyl-label script" translate="no">${esc(C.couple.monogram)}</span></div>
-            </div>
+
+          <p class="fl-hand-kicker">${esc(t(F.title) || ui('theWeddingOf'))}</p>
+          ${F.subtitle ? `<p class="fl-hand-sub">${esc(t(F.subtitle))}</p>` : ''}
+
+          <div class="fl-stack" aria-hidden="${F.photos?.length ? 'false' : 'true'}">
+            ${polaroid(0, 'p1')}
+            ${polaroid(1, 'p2')}
+            ${polaroid(2, 'p3')}
           </div>
 
-          <p class="fl-count-title">${esc(ui('countdownOn'))}</p>
+          <h1 class="fl-names" translate="no">
+            <span class="fl-n">${esc(p1.nick)}</span><span class="fl-amp">&amp;</span><span class="fl-n">${esc(p2.nick)}</span>
+          </h1>
+
+          <p class="fl-date-tag">${esc(shortDateStr)}</p>
+
           <div class="fl-countdown" data-countdown>
             ${['days', 'hours', 'minutes', 'seconds'].map((u, i) => `${i ? '<span class="fl-colon" aria-hidden="true">:</span>' : ''}<div class="fl-cd"><span class="fl-num" data-cd="${u}">00</span><span class="fl-unit">${esc(ui(u))}</span></div>`).join('')}
           </div>
           <p class="label" data-cd-done hidden>${esc(ui('countdownDone'))}</p>
 
-          <p class="title fl-tagline">${esc(ui('flTagline'))}</p>
+          <p class="fl-tagline">${esc(ui('flTagline'))}</p>
           ${C.sections.rsvp ? `<a class="btn btn-ghost fl-cta" href="#rsvp">${esc(ui('flCta'))}</a>` : ''}
           ${contact ? `<p class="fl-contact">${esc(ui('flContact'))}<br>${contact}</p>` : ''}
-          <p class="title fl-names" translate="no">${esc(namesInline)}</p>
           <a class="scroll-hint" href="#${firstAfterHero()}">${esc(ui('scrollHint'))}</a>
         </div>
       </section>`;
@@ -369,9 +376,6 @@
     const main = $('#content');
     const finish = () => {
       cover.classList.add('is-gone');
-      const root = document.documentElement;
-      root.classList.add('fl-enter'); // collage pieces settle in once
-      setTimeout(() => root.classList.remove('fl-enter'), 2200);
       document.body.classList.remove('is-locked');
       main.inert = false;
       toTop(); // always start at the first screen

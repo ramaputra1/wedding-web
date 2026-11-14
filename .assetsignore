@@ -5,6 +5,7 @@
 .DS_Store
 .playwright-cli
 .claude
+.wrangler
 node_modules
 *.log
 README.md
