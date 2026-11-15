@@ -378,17 +378,6 @@ main { min-width: 0; outline: none; }
 }
 .first-look .wrap { gap: 16px; }
 
-/* handwritten kicker above the polaroid stack */
-.fl-hand-kicker {
-  text-align: center; font-family: 'Caveat', cursive;
-  font-size: clamp(28px, 7vw, 34px); line-height: 1; margin: 20px 0 2px;
-  rotate: -2deg; opacity: .95;
-}
-.fl-hand-sub {
-  text-align: center; font-family: var(--serif); font-style: italic;
-  font-size: 13px; letter-spacing: .04em; opacity: .65; margin: 0 0 8px;
-}
-
 /* polaroid stack — 3 overlapping photos with tape */
 .fl-stack {
   position: relative; width: min(100%, 360px); height: clamp(360px, 95vw, 440px);
@@ -428,11 +417,11 @@ main { min-width: 0; outline: none; }
 .fl-p3 { left: 22%; bottom: 10px; width: 56%; rotate: -3deg; z-index: 4; }
 .fl-p3 .fl-tape { top: -8px; left: 30%; rotate: -4deg; }
 
-/* slim-script names "Assela & Rama" */
+/* slim-script names "Assela & Rama" — top header, above the polaroid stack */
 .fl-names {
   font-family: 'Pinyon Script', 'Allura', cursive;
-  font-size: clamp(56px, 15vw, 80px); line-height: 1; text-align: center;
-  margin: 18px 0 10px; color: var(--ivory); font-weight: 400;
+  font-size: clamp(64px, 17vw, 92px); line-height: 1; text-align: center;
+  margin: 8px 0 18px; color: var(--ivory); font-weight: 400;
   text-shadow: 0 4px 16px rgba(0, 0, 0, .5);
   display: flex; align-items: baseline; justify-content: center; gap: .1em; flex-wrap: wrap;
 }

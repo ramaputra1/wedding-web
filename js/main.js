@@ -142,18 +142,15 @@
         <div class="wrap">
           <h2 class="sr-only">${esc(ui('theWeddingOf'))} ${esc(namesInline)}</h2>
 
-          <p class="fl-hand-kicker">${esc(t(F.title) || ui('theWeddingOf'))}</p>
-          ${F.subtitle ? `<p class="fl-hand-sub">${esc(t(F.subtitle))}</p>` : ''}
+          <h1 class="fl-names" translate="no">
+            <span class="fl-n">${esc(p1.nick)}</span><span class="fl-amp">&amp;</span><span class="fl-n">${esc(p2.nick)}</span>
+          </h1>
 
           <div class="fl-stack" aria-hidden="${F.photos?.length ? 'false' : 'true'}">
             ${polaroid(0, 'p1')}
             ${polaroid(1, 'p2')}
             ${polaroid(2, 'p3')}
           </div>
-
-          <h1 class="fl-names" translate="no">
-            <span class="fl-n">${esc(p1.nick)}</span><span class="fl-amp">&amp;</span><span class="fl-n">${esc(p2.nick)}</span>
-          </h1>
 
           <p class="fl-date-tag">${esc(shortDateStr)}</p>
 
@@ -482,10 +479,14 @@
       return;
     }
     if (e.target.closest('[data-gallery-open]')) { openGallery(0); return; }
-    const navLink = e.target.closest('.bnav a[data-nav]');
-    if (navLink) { // smooth scroll without leaving #section in the URL
-      e.preventDefault();
-      document.getElementById(navLink.dataset.nav)?.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
+    // any in-page anchor (bnav, fl-cta, scroll-hint) — smooth scroll without leaving #section in the URL
+    const anchor = e.target.closest('a[href^="#"]');
+    if (anchor) {
+      const id = anchor.getAttribute('href').slice(1);
+      if (id) {
+        e.preventDefault();
+        document.getElementById(id)?.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
+      }
       return;
     }
     if (e.target.closest('[data-lang-toggle]')) {
