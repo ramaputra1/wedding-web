@@ -132,12 +132,12 @@ window.WEDDING = {
     {
       time: "2026-12-19T12:01:00-10:00",
       title: {
-        id: "Hidangan Ringan & Guest Book",
-        en: "Refreshments & Guest Book",
+        id: "Guest Book",
+        en: "Guest Book",
       },
       text: {
-        id: "Setelah sesi foto, silakan menikmati hidangan ringan yang telah kami sediakan. Jika belum mengisi wedding guest book, jangan lupa untuk mengisinya dan mengambil kenang-kenangan kecil dari kami!",
-        en: "After the photos, please get some of the little refreshments we've prepared. And if you haven't signed our wedding guest book yet, don't forget to do so and pick up a little gift from us!",
+        id: "Jika belum mengisi wedding guest book, jangan lupa untuk mengisinya dan mengambil kenang-kenangan kecil dari kami!",
+        en: "Reminder: If you haven't signed our wedding guest book yet, don't forget to do so and pick up a little gift from us!",
       },
     },
   ],
