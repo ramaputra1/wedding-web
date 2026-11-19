@@ -34,25 +34,25 @@ window.WEDDING = {
   timeZone: "Pacific/Honolulu",
   timeZoneLabel: "HST",
 
-  /* First screen after the envelope opens: vintage polaroid stack on deep night-blue.
-     3 photos overlap with tape strips, handwritten captions, slim script names. */
+  /* First screen after the envelope opens: a collage on deep night-blue.
+     Decorations look best as transparent PNGs (cut-outs). */
   firstLook: {
-    title: { id: "Simpan Tanggalnya!", en: "Save the Date!" }, // handwritten kicker above the stack
-    subtitle: {
-      id: "— cerita cinta kami berlanjut —",
-      en: "— our love story continues —",
-    }, // small italic line under kicker
+    title: { id: "Simpan Tanggalnya", en: "Save our Date" }, // script text on the cream note
+    place: {
+      id: "Laie\nHawaii",
+      en: "Laie\nHawaii",
+    }, // on the heart card (\n = new line)
     photos: [
       "assets/img/web/photo-1.jpg",
       "assets/img/web/photo-4.jpg",
       "assets/img/web/photo-5.jpg",
-    ], // 3 polaroid photos (top-left, top-right, bottom-center)
-    captions: ["us, '24", "BYUH days", "forever ♡"], // handwritten caption under each polaroid
-    place: {
-      id: "di Laie, Hawaii yang indah",
-      en: "in beautiful Laie, Hawaii",
-    }, // handwritten location line
-    photosBW: false, // true = grayscale, false = original colours
+    ], // photostrip, top → bottom
+    photosBW: false, // true = black & white photobooth look, false = original colours
+    frame: "", // antique picture frame behind everything (tall PNG). Empty = plain champagne panel
+    paper: "", // paper cut-out behind the "Save our Date" note (e.g. flower silhouette PNG)
+    lily: "", // flower peeking over the top of the frame (PNG)
+    greenery: "", // hanging greenery on the right edge (tall PNG)
+    lace: "", // lace ruffle behind the heart card (PNG)
     contact: "", // e.g. 'ramaassela@email.com' or a WhatsApp number — '' hides the line
   },
 
